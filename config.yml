@@ -20,7 +20,7 @@ templates:
   series:
     thetvdb_lookup: yes
     tvmaze_lookup: yes
-    include: series.yml
+    #include: series.yml
     configure_series:
       from:
         entry_list: trakt-series
@@ -88,7 +88,7 @@ templates:
   transmission-anchors:
     _transmission-settings: &transmission-settings
       host: "{? transmission.host ?}"
-      port: 9091
+      port: 65081
       username: "{? transmission.user ?}"
       password: "{? transmission.pass ?}"
 
@@ -799,10 +799,6 @@ tasks:
       on_exit:
         phase:
           - find "/{? folder.root ?}{? folder.downanime ?}"* -type d -empty -delete
-### REMOVE THE LINES BELOW IF YOU DONT WANT TO RENAME ANIME WITH THE EXTERNAL SCRIPT
-          - "{? script.animerenamer ?}"
-      on_output:
-        for_accepted: echo "{{location}}" >> "{? list.animerename ?}"
 
 
 ##### Move movies from downloads folder to the movies folder, along with possible subtitles and adding the files to the subtitle queue
