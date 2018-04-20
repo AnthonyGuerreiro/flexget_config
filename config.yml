@@ -533,7 +533,6 @@ tasks:
     inputs:
       - rss: https://nyaa.si/?page=rss&c=1_2
 
-
 ##### Discover and download anime from verified groups
 #
   download-anime-series-discover:
