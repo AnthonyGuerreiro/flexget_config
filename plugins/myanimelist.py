@@ -55,7 +55,8 @@ class myanimelist(object):
             return len(ign_tags) > 0
 
         def get_anime(task, url):
-            page = task.requests.get(url)
+            log.verbose("Requesting %s" % url)
+            page = task.requests.get(url, timeout=5)
             if page.status_code != 200:
                 raise plugin.PluginError("Unable to get MAL list. Either the list is private or does not exist")
             soup = get_soup(page.text)
